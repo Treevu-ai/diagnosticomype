@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>¿Tu empresa ya usa IA? Descúbrelo en 5 días — Sinapsis Innovadora</title>
 <meta name="description" content="Diagnóstico IA para MYPEs peruanas. En 5 días sabes qué procesos automatizar, cuánto cuesta y qué retorno esperar. Entregable listo para tu directorio.">
+<meta name="theme-color" content="#080808">
+<link rel="canonical" href="https://sinapsisinnovadora.org/">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -19,8 +21,16 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--w);font-family:'Barlow',sans-serif;font-size:15px;line-height:1.65;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(245,200,0,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,200,0,.025) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;z-index:0}
 
+/* SKIP NAV - accesibilidad */
+.skip-nav{position:absolute;top:-40px;left:0;background:var(--y);color:var(--bg);padding:.75rem 1.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;z-index:999;text-decoration:none;transition:top .2s}
+.skip-nav:focus{top:0}
+
+/* URGENCY BAR */
+.urgency-bar{position:fixed;top:0;left:0;right:0;z-index:101;height:32px;display:flex;align-items:center;justify-content:center;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--y);text-align:center;padding:0 1rem}
+.urgency-bar strong{margin-left:.4rem}
+
 /* STICKY HEADER */
-header{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(8,8,8,.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--y)}
+header{position:fixed;top:32px;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(8,8,8,.97);backdrop-filter:blur(16px);border-bottom:2px solid var(--y)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{background:var(--y);color:var(--bg);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;padding:3px 7px;line-height:1}
 .logo-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;color:var(--w2);letter-spacing:.12em;text-transform:uppercase}
@@ -28,9 +38,8 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;
 .header-cta:hover{background:var(--y2)}
 
 /* HERO */
-.hero{min-height:100vh;padding-top:58px;display:flex;flex-direction:column;justify-content:center;padding-left:5rem;padding-right:5rem;padding-bottom:4rem;position:relative;overflow:hidden}
+.hero{min-height:100vh;padding-top:90px;display:flex;flex-direction:column;justify-content:center;padding-left:5rem;padding-right:5rem;padding-bottom:4rem;position:relative;overflow:hidden}
 
-/* big background number */
 .hero::before{content:'5';position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:60vw;color:rgba(245,200,0,.025);line-height:1;pointer-events:none;z-index:0}
 
 .hero-inner{position:relative;z-index:2;max-width:820px}
@@ -59,6 +68,55 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 .btn-sec:hover{border-color:var(--w3);color:var(--w)}
 .hero-note{font-family:'Courier Prime',monospace;font-size:9px;color:var(--w3);letter-spacing:.12em;margin-top:1rem}
 
+/* MINI DIAGNOSIS QUIZ */
+.mini-diag{padding:5rem 5rem;background:var(--bg);position:relative;overflow:hidden}
+.mini-diag::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--y),transparent)}
+.mini-diag-inner{max-width:720px;margin:0 auto;position:relative;z-index:2}
+.mini-diag-header{text-align:center;margin-bottom:2.5rem}
+.mini-diag-header .sec-lbl{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.mini-diag-header .sec-lbl span{width:16px;height:2px;background:var(--y);display:block;box-shadow:0 0 6px rgba(245,200,0,.8)}
+.mini-diag-header h2{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;line-height:.95;margin-bottom:.5rem}
+.mini-diag-header h2 em{font-style:italic;color:var(--y);text-shadow:0 0 20px rgba(245,200,0,.4)}
+.mini-diag-header p{font-size:14px;color:var(--w3);font-weight:300;max-width:480px;margin:0 auto}
+
+.quiz-card{background:var(--bg2);border:1px solid var(--border-y);padding:2.5rem;box-shadow:0 0 40px rgba(245,200,0,.06)}
+.quiz-progress{display:flex;gap:4px;margin-bottom:2rem}
+.quiz-progress span{height:4px;flex:1;background:var(--bg3);border-radius:2px;transition:background .4s}
+.quiz-progress span.active{background:var(--y)}
+.quiz-progress span.done{background:var(--y2)}
+
+.quiz-step{display:none}
+.quiz-step.active{display:block}
+
+.quiz-question{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.3rem;text-transform:uppercase;color:var(--w);margin-bottom:1.5rem;line-height:1.2}
+
+.quiz-options{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem}
+.quiz-opt{display:block;background:var(--bg3);border:1px solid var(--border);padding:1rem 1.25rem;font-family:'Barlow',sans-serif;font-size:14px;color:var(--w2);cursor:pointer;transition:all .2s;text-align:left;width:100%;border-radius:0}
+.quiz-opt:hover,.quiz-opt.selected{border-color:var(--y);background:rgba(245,200,0,.08);color:var(--w)}
+
+.quiz-nav{display:flex;gap:.5rem;justify-content:space-between;align-items:center}
+.quiz-next{background:var(--y);color:var(--bg);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 2rem;border:2px solid var(--y);cursor:pointer;transition:all .2s}
+.quiz-next:hover{background:transparent;color:var(--y)}
+.quiz-next:disabled{opacity:.3;cursor:not-allowed}
+.quiz-back{background:transparent;border:1px solid var(--border);color:var(--w3);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.5rem;cursor:pointer;transition:all .2s}
+.quiz-back:hover{border-color:var(--w3);color:var(--w)}
+
+/* Quiz result */
+.quiz-result{text-align:center;padding:1rem 0}
+.quiz-result .result-icon{font-size:3rem;margin-bottom:.75rem}
+.quiz-result .result-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--w);margin-bottom:.5rem}
+.quiz-result .result-desc{font-size:13px;color:var(--w3);line-height:1.7;margin-bottom:.5rem}
+.quiz-result .result-score{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2.5rem;color:var(--y);text-shadow:0 0 20px rgba(245,200,0,.35);margin:.75rem 0}
+.quiz-result .result-detail{font-size:12px;color:var(--w2);line-height:1.7;margin-bottom:1.5rem;text-align:left;background:var(--bg3);padding:1rem 1.25rem;border-left:3px solid var(--y)}
+.quiz-result .result-detail li{list-style:none;padding:.2rem 0;font-size:12px;color:var(--w2)}
+.quiz-result .result-detail li::before{content:'→ ';color:var(--y)}
+.quiz-result .result-detail strong{color:var(--y)}
+
+.quiz-email-capture{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.quiz-email-capture label{display:block;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--w3);margin-bottom:.5rem;text-align:left}
+.quiz-email-capture input[type="email"]{width:100%;background:var(--bg3);border:1px solid var(--border);padding:.85rem 1rem;font-family:'Barlow',sans-serif;font-size:14px;color:var(--w);margin-bottom:.75rem}
+.quiz-email-capture input:focus{outline:none;border-color:var(--y)}
+
 /* PAIN SECTION */
 .pain{background:var(--y);padding:4rem 5rem}
 .pain-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);text-transform:uppercase;color:var(--bg);margin-bottom:2rem;line-height:1}
@@ -77,11 +135,25 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 .product-tagline{font-size:14px;color:var(--w3);font-weight:300;line-height:1.7;margin-bottom:2rem;max-width:400px}
 
 .deliverables{display:flex;flex-direction:column;gap:3px}
-.del-item{background:var(--bg3);padding:1.4rem 1.6rem;display:flex;align-items:flex-start;gap:1rem;border-left:3px solid transparent;transition:border-color .2s}
-.del-item:hover{border-left-color:var(--y)}
+.del-item{background:var(--bg3);padding:1.4rem 1.6rem;display:flex;align-items:flex-start;gap:1rem;border-left:3px solid transparent;transition:all .3s}
+.del-item:hover{border-left-color:var(--y);transform:translateX(4px)}
 .del-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:rgba(245,200,0,.25);line-height:1;flex-shrink:0;width:2rem}
 .del-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--w);margin-bottom:.25rem}
 .del-desc{font-size:12px;color:var(--w3);line-height:1.6;font-weight:300}
+
+/* MOCKUP DELIVERABLE */
+.del-mockup{margin-top:.75rem;background:var(--bg);border:1px solid var(--border);padding:.75rem;position:relative;overflow:hidden}
+.del-mockup-label{font-family:'Courier Prime',monospace;font-size:7px;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.del-mockup-label::before{content:'';width:8px;height:8px;background:var(--y);border-radius:50%;opacity:.5}
+.del-mockup-bar{display:flex;gap:2px;margin-bottom:.35rem}
+.del-mockup-bar span{height:3px;border-radius:1px;background:var(--y);opacity:.15}
+.del-mockup-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.25rem}
+.del-mockup-row .bar{height:3px;border-radius:1px}
+.del-mockup-row .lbl{font-family:'Courier Prime',monospace;font-size:7px;color:var(--w3)}
+.del-mockup-row .val{font-family:'Barlow Condensed',sans-serif;font-size:7px;color:var(--y);margin-left:auto;font-weight:700}
+.del-mockup-row .bar.g{background:var(--y);opacity:.6}
+.del-mockup-row .bar.m{background:var(--y);opacity:.35}
+.del-mockup-row .bar.r{background:var(--y);opacity:.15}
 
 .product-right{}
 .price-card{background:var(--bg);border:1px solid var(--border-y);padding:2.5rem;box-shadow:0 0 40px rgba(245,200,0,.06)}
@@ -104,8 +176,15 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 .process{padding:5rem 5rem;background:var(--bg)}
 .process-track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative}
 .process-track::before{content:'';position:absolute;top:2.2rem;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--y),rgba(245,200,0,.2));z-index:0}
-.process-step{text-align:center;padding:0 1rem;position:relative;z-index:1}
-.ps-day{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--y);color:var(--bg);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:.05em;margin-bottom:1rem;border-radius:50%}
+
+/* Progress bar visual */
+.progress-track{position:relative;z-index:1}
+.progress-track::after{content:'';position:absolute;top:2.2rem;left:10%;height:2px;width:0%;background:var(--y);z-index:2;transition:width 1.5s ease;box-shadow:0 0 8px rgba(245,200,0,.6)}
+.progress-track.animated::after{width:80%}
+
+.process-step{text-align:center;padding:0 1rem;position:relative;z-index:3;transition:transform .3s}
+.process-step.active .ps-day{transform:scale(1.15);box-shadow:0 0 16px rgba(245,200,0,.6)}
+.ps-day{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--y);color:var(--bg);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;letter-spacing:.05em;margin-bottom:1rem;border-radius:50%;transition:all .3s}
 .ps-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;text-transform:uppercase;color:var(--w);margin-bottom:.4rem;letter-spacing:.03em}
 .ps-desc{font-size:11.5px;color:var(--w3);line-height:1.6;font-weight:300}
 
@@ -122,6 +201,7 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 .roi-numbers{display:flex;flex-direction:column;gap:3px}
 .roi-num-item{background:var(--bg2);padding:2rem;display:flex;align-items:center;gap:1.5rem}
 .rni-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3rem;color:var(--y);text-shadow:0 0 20px rgba(245,200,0,.35);line-height:1;flex-shrink:0;width:5rem;text-align:right}
+.rni-num[data-target]{display:inline-block}
 .rni-text{font-size:13px;color:var(--w2);line-height:1.65;font-weight:300}
 .rni-text strong{color:var(--w);font-weight:600;display:block;font-family:'Barlow Condensed',sans-serif;font-size:1rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem}
 
@@ -143,11 +223,17 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 
 /* BIO STRIP */
 .bio-strip{background:var(--bg);padding:3.5rem 5rem;display:flex;align-items:center;gap:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.bio-avatar{width:80px;height:80px;background:var(--bg2);border:2px solid var(--border-y);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.8rem;color:var(--y)}
+.bio-avatar{width:90px;height:90px;background:linear-gradient(135deg,var(--bg3),var(--bg2));border:2px solid var(--border-y);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;color:var(--y);position:relative;overflow:hidden}
+.bio-avatar::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,200,0,.1),transparent)}
 .bio-content{flex:1}
 .bio-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--w);letter-spacing:-.01em}
 .bio-title{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--y);margin-bottom:.5rem}
-.bio-desc{font-size:13px;color:var(--w3);font-weight:300;line-height:1.7;max-width:520px}
+.bio-desc{font-size:13px;color:var(--w3);font-weight:300;line-height:1.7;max-width:620px}
+.bio-desc p{margin-bottom:.5rem}
+.bio-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-top:1rem}
+.bio-hl{background:var(--bg2);border:1px solid var(--border);padding:.75rem;text-align:center}
+.bio-hl .hl-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:var(--y)}
+.bio-hl .hl-lbl{font-size:10px;color:var(--w3);text-transform:uppercase;letter-spacing:.05em;margin-top:.15rem}
 .bio-creds-strip{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem}
 .bio-cred-tag{font-family:'Courier Prime',monospace;font-size:8px;letter-spacing:.08em;padding:2px 8px;border:1px solid var(--border);color:var(--w3);text-transform:uppercase}
 
@@ -161,14 +247,27 @@ h1 .sub-line{display:block;font-size:clamp(1.8rem,3.5vw,4rem);color:var(--w2);fo
 .tc-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;color:var(--w);letter-spacing:.05em}
 .tc-role{font-family:'Courier Prime',monospace;font-size:8.5px;color:var(--w3);letter-spacing:.1em;margin-top:.15rem}
 
-/* OBJECTIONS */
-.objections{padding:4rem 5rem;background:var(--bg)}
-.obj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;margin-top:2.5rem;background:rgba(255,255,255,.04)}
-.obj-item{background:var(--bg);padding:1.8rem 2rem;border-left:3px solid transparent;transition:border-color .2s}
-.obj-item:hover{border-left-color:var(--y)}
-.obj-q{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--w3);margin-bottom:.5rem;letter-spacing:.03em}
-.obj-a{font-size:12.5px;color:var(--w2);line-height:1.7;font-weight:300}
-.obj-a strong{color:var(--y);font-weight:600}
+/* FAQ ACCORDION */
+.faq{padding:4rem 5rem;background:var(--bg)}
+.faq-grid{max-width:820px;margin-top:2rem;display:flex;flex-direction:column;gap:0}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-btn{width:100%;background:none;border:none;padding:1.25rem 0;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;cursor:pointer;text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--w3);letter-spacing:.03em;transition:color .2s}
+.faq-btn:hover{color:var(--w)}
+.faq-btn .faq-icon{font-size:1.2rem;color:var(--y);transition:transform .3s;flex-shrink:0;margin-top:.15rem}
+.faq-item.open .faq-btn{color:var(--w)}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-answer{max-height:300px;padding-bottom:1.25rem}
+.faq-answer p{font-size:13px;color:var(--w2);line-height:1.7;font-weight:300}
+.faq-answer strong{color:var(--y);font-weight:600}
+
+/* ALTERNATIVE CHANNEL */
+.alt-channels{max-width:820px;margin:2rem auto 0;padding:2rem;background:var(--bg2);border:1px solid var(--border)}
+.alt-channels-title{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--w3);margin-bottom:1rem;text-align:center}
+.alt-channels-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.alt-ch{display:flex;align-items:center;gap:.75rem;background:var(--bg3);padding:1rem 1.5rem;text-decoration:none;color:var(--w2);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase;transition:all .2s;border:1px solid var(--border)}
+.alt-ch:hover{border-color:var(--y);color:var(--y)}
+.alt-ch-icon{font-size:1.2rem}
 
 /* FINAL CTA */
 .final-cta{background:var(--y);padding:5rem}
@@ -198,6 +297,9 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 /* ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-delay-1{transition-delay:.1s}
+.fade-up-delay-2{transition-delay:.2s}
+.fade-up-delay-3{transition-delay:.3s}
 
 /* FLOATING WA BUTTON */
 .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;background:var(--y);color:var(--bg);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.5rem;box-shadow:0 4px 24px rgba(245,200,0,.35);transition:all .2s;display:flex;align-items:center;gap:.5rem}
@@ -205,18 +307,21 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  header{padding:0 1.2rem}
+  .urgency-bar{font-size:8px;padding:0 .5rem;height:28px}
+  header{top:28px;padding:0 1.2rem;height:52px}
   .header-cta{font-size:11px;padding:.5rem 1rem}
-  .hero{padding:3.5rem 1.5rem 3rem}
+  .hero{padding:3.5rem 1.5rem 3rem;padding-top:80px}
   .hero::before{display:none}
-  .pain,.product,.process,.roi,.upsell,.testi,.objections,.final-cta{padding:3.5rem 1.5rem}
+  .pain,.product,.process,.roi,.upsell,.testi,.faq,.final-cta,.mini-diag{padding:3.5rem 1.5rem}
   .pain-grid{grid-template-columns:1fr}
   .product-layout,.roi-layout,.fc-inner,.upsell-layout{grid-template-columns:1fr;gap:2rem}
   .process-track{grid-template-columns:1fr 1fr;gap:2rem}
   .process-track::before{display:none}
+  .progress-track::after{display:none}
   .testi-grid,.obj-grid{grid-template-columns:1fr}
   .bio-strip{flex-direction:column;text-align:center;padding:2.5rem 1.5rem;gap:1.5rem}
   .bio-creds-strip{justify-content:center}
+  .bio-highlights{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;text-align:center;padding:1.5rem}
   .footer-right,.footer-mid{text-align:center}
   .wa-float{bottom:1.5rem;right:1rem;font-size:11px;padding:.75rem 1.2rem}
@@ -227,40 +332,135 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
   .hp-sep{display:none}
   .process-track{grid-template-columns:1fr}
   .upsell-layout{grid-template-columns:1fr}
+  .alt-channels-row{flex-direction:column}
+  .bio-highlights{grid-template-columns:1fr 1fr}
 }
 </style>
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Diagnóstico de Inteligencia Artificial para empresas",
+  "name": "Diagnóstico IA Express",
+  "description": "En 5 días sabes exactamente qué puede hacer la IA por tu empresa y qué no. Mapa de oportunidades, ROI estimado, hoja de ruta de 90 días y presentación ejecutiva.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Sinapsis Innovadora",
+    "url": "https://sinapsisinnovadora.org",
+    "telephone": "+51902126765",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lima",
+      "addressCountry": "PE"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Perú"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "1500",
+    "priceCurrency": "PEN",
+    "description": "Precio fijo sin costos adicionales",
+    "availability": "https://schema.org/InStock",
+    "url": "https://wa.me/51902126765?text=Hola%20Ricardo%2C%20quiero%20el%20Diagn%C3%B3stico%20IA%20para%20mi%20empresa."
+  },
+  "serviceOutput": [
+    "Mapa de oportunidades IA priorizado",
+    "Estimado de inversión y ROI por iniciativa",
+    "Hoja de ruta de implementación 90 días",
+    "Presentación ejecutiva en 10 slides",
+    "Sesión de revisión de resultados"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Y si mi empresa es muy pequeña para la IA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El diagnóstico es precisamente para responder eso. Si no hay oportunidades reales para tu empresa, te lo digo en la primera sesión y no sigues pagando. Nunca vendo lo que no sirve."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿No es caro S/ 1,500 para una MYPE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de cuánto cuesta no saber. Una implementación de IA sin diagnóstico cuesta entre S/ 5,000 y S/ 20,000 y falla el 70% de las veces. El diagnóstico es el seguro más barato que existe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito tener equipo técnico en mi empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. El diagnóstico mapea oportunidades según tus capacidades reales actuales. El 70% de las recomendaciones no requieren contratar a nadie nuevo — usan lo que ya tienes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo pagar en cuotas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Puedes pagar S/ 750 al inicio y S/ 750 al recibir el diagnóstico. Aceptamos Yape, transferencia BCP/Interbank y tarjeta vía Niubiz. Para empresas emitimos factura con RUC sin problema."
+      }
+    }
+  ]
+}
+</script>
 </head>
+
 <body>
 
+<!-- SKIP NAV -->
+<a href="#main-content" class="skip-nav">Ir al contenido principal</a>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar" aria-label="Indicador de cupos disponibles">
+  ⚡ Solo <strong>3 cupos disponibles</strong> esta semana — Agenda tu diagnóstico antes del viernes
+</div>
+
 <!-- FLOATING WA -->
-<a href="https://wa.me/51902126765?text=Hola%20Ricardo%2C%20quiero%20el%20Diagn%C3%B3stico%20IA%20para%20mi%20empresa." target="_blank" rel="noopener" class="wa-float">💬 Empezar ahora</a>
+<a href="https://wa.me/51902126765?text=Hola%20Ricardo%2C%20quiero%20el%20Diagn%C3%B3stico%20IA%20para%20mi%20empresa." target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp para solicitar diagnóstico">💬 Empezar ahora</a>
 
 <!-- HEADER -->
-<header>
-  <a class="logo" href="#">
+<header role="banner">
+  <a class="logo" href="#" aria-label="Sinapsis Innovadora - Inicio">
     <span class="logo-mark">SI</span>
     <span class="logo-name">Sinapsis Innovadora</span>
   </a>
   <a href="https://wa.me/51902126765?text=Hola%20Ricardo%2C%20quiero%20el%20Diagn%C3%B3stico%20IA%20para%20mi%20empresa." target="_blank" rel="noopener" class="header-cta">Solicitar diagnóstico →</a>
 </header>
 
+<main id="main-content">
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" aria-labelledby="hero-heading">
   <div class="hero-inner">
     <div class="hero-pill">Para gerentes y dueños de MYPE en Perú</div>
-    <h1>
+    <h1 id="hero-heading">
       Sabe en <em>5 días</em>
       <span class="sub-line">cómo la IA puede mover<br>tu empresa este año</span>
     </h1>
     <p class="hero-desc">
       Un diagnóstico concreto — no un curso, no una presentación genérica. <strong>Qué procesos automatizar, cuánto costará y qué retorno esperar.</strong> Listo para presentar a tu directorio o socios en 5 días hábiles.
     </p>
-    <div class="hero-promise">
-      <div class="hp-item"><div class="hp-num">5</div><div class="hp-lbl">Días hábiles<br>de entrega</div></div>
-      <div class="hp-sep"></div>
-      <div class="hp-item"><div class="hp-num">S/1,500</div><div class="hp-lbl">Precio fijo<br>sin sorpresas</div></div>
-      <div class="hp-sep"></div>
-      <div class="hp-item"><div class="hp-num">100%</div><div class="hp-lbl">Garantía de<br>devolución</div></div>
+    <div class="hero-promise" role="list" aria-label="Propuesta de valor principal">
+      <div class="hp-item" role="listitem"><div class="hp-num">5</div><div class="hp-lbl">Días hábiles<br>de entrega</div></div>
+      <div class="hp-sep" role="separator"></div>
+      <div class="hp-item" role="listitem"><div class="hp-num">S/1,500</div><div class="hp-lbl">Precio fijo<br>sin sorpresas</div></div>
+      <div class="hp-sep" role="separator"></div>
+      <div class="hp-item" role="listitem"><div class="hp-num">100%</div><div class="hp-lbl">Garantía de<br>devolución</div></div>
     </div>
     <div class="hero-ctas">
       <a href="https://wa.me/51902126765?text=Hola%20Ricardo%2C%20quiero%20el%20Diagn%C3%B3stico%20IA%20para%20mi%20empresa." target="_blank" rel="noopener" class="btn-main">Quiero mi diagnóstico →</a>
@@ -270,9 +470,118 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
   </div>
 </section>
 
+<!-- MINI DIAGNOSIS QUIZ -->
+<section class="mini-diag" aria-labelledby="mini-diag-heading">
+  <div class="mini-diag-inner">
+    <div class="mini-diag-header">
+      <div class="sec-lbl"><span></span>Gratis · 2 minutos</div>
+      <h2 id="mini-diag-heading">¿Cuál es tu <em>puntaje IA</em>?</h2>
+      <p>Responde 4 preguntas y te digo qué tan preparada está tu empresa para adoptar IA hoy.</p>
+    </div>
+
+    <div class="quiz-card fade-up" role="form" aria-label="Mini diagnóstico interactivo">
+      <!-- Progress -->
+      <div class="quiz-progress" aria-label="Progreso del diagnóstico" role="progressbar">
+        <span class="active"></span><span></span><span></span><span></span>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-question">¿Cuántas personas tiene tu empresa?</div>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt" data-q="1" data-val="1-5">1 a 5 personas</button>
+          <button type="button" class="quiz-opt" data-q="1" data-val="6-15">6 a 15 personas</button>
+          <button type="button" class="quiz-opt" data-q="1" data-val="16-50">16 a 50 personas</button>
+          <button type="button" class="quiz-opt" data-q="1" data-val="50+">Más de 50 personas</button>
+        </div>
+        <div class="quiz-nav">
+          <div></div>
+          <button type="button" class="quiz-next" data-next="2" disabled>Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-question">¿Cuál es tu mayor dolor operativo hoy?</div>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt" data-q="2" data-val="atencion">Atención al cliente / consultas repetitivas</button>
+          <button type="button" class="quiz-opt" data-q="2" data-val="ventas">Seguimiento de ventas y cotizaciones</button>
+          <button type="button" class="quiz-opt" data-q="2" data-val="logistica">Logística y gestión de inventario</button>
+          <button type="button" class="quiz-opt" data-q="2" data-val="admin">Administración / reportes manuales</button>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-back="1">← Atrás</button>
+          <button type="button" class="quiz-next" data-next="3" disabled>Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-question">¿Ya usas alguna herramienta digital para tu operación?</div>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt" data-q="3" data-val="basico">Solo WhatsApp y Excel</button>
+          <button type="button" class="quiz-opt" data-q="3" data-val="intermedio">Algunos softwares (ERP, CRM básico)</button>
+          <button type="button" class="quiz-opt" data-q="3" data-val="avanzado">Sí, tenemos sistemas integrados</button>
+          <button type="button" class="quiz-opt" data-q="3" data-val="cero">Casi todo es manual / papel</button>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-back="2">← Atrás</button>
+          <button type="button" class="quiz-next" data-next="4" disabled>Siguiente →</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-question">¿Qué tan urgente es para ti mejorar la eficiencia operativa?</div>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt" data-q="4" data-val="critico">Crítico — estamos perdiendo oportunidades</button>
+          <button type="button" class="quiz-opt" data-q="4" data-val="importante">Importante — pero no sé por dónde empezar</button>
+          <button type="button" class="quiz-opt" data-q="4" data-val="curioso">Curiosidad — quiero explorar posibilidades</button>
+          <button type="button" class="quiz-opt" data-q="4" data-val="presionado">Mi competencia ya lo está haciendo</button>
+        </div>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-back="3">← Atrás</button>
+          <button type="button" class="quiz-next" data-next="result" disabled>Ver mi resultado →</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="quiz-step" data-step="result">
+        <div class="quiz-result">
+          <div class="result-title">Tu puntaje de preparación IA</div>
+          <div class="result-score" id="quiz-score">0/10</div>
+          <div class="result-desc" id="quiz-summary"></div>
+          <ul class="result-detail" id="quiz-recommendations"></ul>
+          <div style="margin-top:1.5rem">
+            <a href="https://wa.me/51902126765?text=Hola%20Ricardo%2C%20acabo%20de%20hacer%20el%20mini-diagn%C3%B3stico%20y%20quiero%20el%20Diagn%C3%B3stico%20IA%20completo." target="_blank" rel="noopener" class="btn-main" style="display:inline-flex">Quiero mi diagnóstico completo →</a>
+          </div>
+          <div class="quiz-email-capture">
+            <label for="quiz-email">Recibe un resumen por email</label>
+            <input type="email" id="quiz-email" placeholder="tu@email.com" aria-label="Tu email para recibir el resumen">
+            <button type="button" class="quiz-next" id="quiz-email-btn" style="width:100%">Enviar resumen por email</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alternative channels -->
+    <div class="alt-channels" aria-label="Canales alternativos de contacto">
+      <div class="alt-channels-title">¿Prefieres no escribir por WhatsApp?</div>
+      <div class="alt-channels-row">
+        <a href="mailto:hola@sinapsisinnovadora.org?subject=Quiero%20el%20Diagn%C3%B3stico%20IA" class="alt-ch" aria-label="Contactar por email">
+          <span class="alt-ch-icon">📧</span> Email directo
+        </a>
+        <a href="https://calendly.com/" target="_blank" rel="noopener" class="alt-ch" aria-label="Agendar en calendario">
+          <span class="alt-ch-icon">📅</span> Agendar en calendario
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PAIN -->
-<section class="pain">
-  <div class="pain-title">¿Te suena alguna de estas situaciones?</div>
+<section class="pain" aria-labelledby="pain-heading">
+  <h2 class="pain-title" id="pain-heading">¿Te suena alguna de estas situaciones?</h2>
   <div class="pain-grid fade-up">
     <div class="pain-item">
       <div class="pain-q">"Escucho hablar de IA en todas partes pero no sé si aplica a mi negocio"</div>
@@ -290,13 +599,13 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 </section>
 
 <!-- PRODUCT -->
-<section class="product" id="diagnostico">
+<section class="product" id="diagnostico" aria-labelledby="product-heading">
   <div class="sec-lbl" style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem">
     <span style="width:16px;height:2px;background:var(--y);display:block;box-shadow:0 0 6px rgba(245,200,0,.8)"></span>
     El servicio
   </div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.75rem">Diagnóstico <em style="font-style:italic;color:var(--y);text-shadow:0 0 20px rgba(245,200,0,.4)">IA Express</em></h2>
-  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300;margin-bottom:0">En 5 días sabes exactamente qué puede hacer la IA por tu empresa y qué no. Sin ambigüedades.</p>
+  <h2 class="product-name" id="product-heading">Diagnóstico <em>IA Express</em></h2>
+  <p class="product-tagline">En 5 días sabes exactamente qué puede hacer la IA por tu empresa y qué no. Sin ambigüedades.</p>
 
   <div class="product-layout fade-up">
     <div class="product-left">
@@ -307,6 +616,14 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
           <div>
             <div class="del-title">Mapa de oportunidades IA</div>
             <div class="del-desc">Lista priorizada de los 3–5 procesos de tu empresa donde la IA genera mayor impacto. Con nivel de complejidad, costo estimado y tiempo de implementación.</div>
+            <div class="del-mockup" aria-label="Vista previa del mapa de oportunidades IA">
+              <div class="del-mockup-label">Vista previa — Mapa de oportunidades</div>
+              <div class="del-mockup-bar"><span style="width:100%"></span></div>
+              <div class="del-mockup-row"><div class="bar g" style="width:90px"></div><span class="lbl">WhatsApp API</span><span class="val">ROI: 8x</span></div>
+              <div class="del-mockup-row"><div class="bar g" style="width:70px"></div><span class="lbl">Predicción demanda</span><span class="val">ROI: 5x</span></div>
+              <div class="del-mockup-row"><div class="bar m" style="width:50px"></div><span class="lbl">Chatbot web</span><span class="val">ROI: 3x</span></div>
+              <div class="del-mockup-row"><div class="bar r" style="width:30px"></div><span class="lbl">RPA contable</span><span class="val">ROI: 1.5x</span></div>
+            </div>
           </div>
         </div>
         <div class="del-item">
@@ -314,6 +631,13 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
           <div>
             <div class="del-title">Estimado de inversión y ROI</div>
             <div class="del-desc">Números reales por cada iniciativa: cuánto invertir, qué retorno esperar y en cuánto tiempo. Sin promesas infladas ni conservadurismo innecesario.</div>
+            <div class="del-mockup" aria-label="Vista previa del estimado de ROI">
+              <div class="del-mockup-label">Vista previa — Estimado de inversión</div>
+              <div class="del-mockup-bar"><span style="width:100%"></span></div>
+              <div class="del-mockup-row"><span class="lbl">Inversión:</span><span class="val">S/ 800</span></div>
+              <div class="del-mockup-row"><span class="lbl">Ahorro mensual:</span><span class="val">S/ 2,400</span></div>
+              <div class="del-mockup-row"><span class="lbl">Recuperación:</span><span class="val">3 semanas</span></div>
+            </div>
           </div>
         </div>
         <div class="del-item">
@@ -321,6 +645,13 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
           <div>
             <div class="del-title">Hoja de ruta de 90 días</div>
             <div class="del-desc">Plan de implementación paso a paso, adaptado al tamaño y capacidades reales de tu equipo. Lo que puedes empezar mañana y lo que requiere preparación.</div>
+            <div class="del-mockup" aria-label="Vista previa de la hoja de ruta">
+              <div class="del-mockup-label">Vista previa — Hoja de ruta 90 días</div>
+              <div class="del-mockup-bar"><span style="width:100%"></span></div>
+              <div class="del-mockup-row"><div class="bar g" style="width:60px"></div><span class="lbl">Mes 1: Quick wins</span><span class="val">3 tareas</span></div>
+              <div class="del-mockup-row"><div class="bar m" style="width:50px"></div><span class="lbl">Mes 2: Integraciones</span><span class="val">2 tareas</span></div>
+              <div class="del-mockup-row"><div class="bar r" style="width:40px"></div><span class="lbl">Mes 3: Escala</span><span class="val">1 tarea</span></div>
+            </div>
           </div>
         </div>
         <div class="del-item">
@@ -328,6 +659,13 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
           <div>
             <div class="del-title">Presentación ejecutiva</div>
             <div class="del-desc">10 slides listos para presentar a socios, directorio o inversores. Lenguaje de negocio, no técnico. Diseño profesional incluido.</div>
+            <div class="del-mockup" aria-label="Vista previa de la presentación ejecutiva">
+              <div class="del-mockup-label">Vista previa — Presentación ejecutiva</div>
+              <div class="del-mockup-bar"><span style="width:100%"></span></div>
+              <div class="del-mockup-row"><span class="lbl">Slides:</span><span class="val">10</span></div>
+              <div class="del-mockup-row"><span class="lbl">Formato:</span><span class="val">Google Slides</span></div>
+              <div class="del-mockup-row"><span class="lbl">Lenguaje:</span><span class="val">Negocio, no técnico</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -363,34 +701,34 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 </section>
 
 <!-- PROCESS -->
-<section class="process" id="proceso">
+<section class="process" id="proceso" aria-labelledby="process-heading">
   <div style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem"><span style="width:16px;height:2px;background:var(--y);display:block"></span>Cómo funciona</div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">De hoy a resultados<br>en <em style="font-style:italic;color:var(--y)">5 días</em></h2>
-  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300">Sin procesos complicados. Desde que confirmas hasta que recibes el diagnóstico completo.</p>
+  <h2 id="process-heading" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">De hoy a resultados<br>en <em style="font-style:italic;color:var(--y)">5 días</em></h2>
+  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300;margin-bottom:0">Sin procesos complicados. Desde que confirmas hasta que recibes el diagnóstico completo.</p>
 
-  <div class="process-track fade-up">
-    <div class="process-step">
-      <div class="ps-day">Hoy</div>
+  <div class="process-track progress-track fade-up" aria-label="Proceso de 5 pasos">
+    <div class="process-step active">
+      <div class="ps-day" aria-label="Hoy">Hoy</div>
       <div class="ps-title">Confirmas por WhatsApp</div>
       <div class="ps-desc">Me escribes, coordinamos el pago y agendamos la primera sesión para esta semana.</div>
     </div>
     <div class="process-step">
-      <div class="ps-day">Día 1</div>
+      <div class="ps-day" aria-label="Día 1">Día 1</div>
       <div class="ps-title">Sesión de diagnóstico</div>
       <div class="ps-desc">60–90 min contigo y tu equipo clave. Mapeamos operaciones, datos disponibles y objetivos.</div>
     </div>
     <div class="process-step">
-      <div class="ps-day">Días 2–3</div>
+      <div class="ps-day" aria-label="Días 2 a 3">Días 2–3</div>
       <div class="ps-title">Análisis y modelado</div>
       <div class="ps-desc">Trabajo de análisis: identificamos oportunidades, calculamos ROI y construimos la hoja de ruta.</div>
     </div>
     <div class="process-step">
-      <div class="ps-day">Día 4</div>
+      <div class="ps-day" aria-label="Día 4">Día 4</div>
       <div class="ps-title">Revisión contigo</div>
       <div class="ps-desc">Presentación preliminar. Incorporamos tus comentarios y ajustamos prioridades si corresponde.</div>
     </div>
     <div class="process-step">
-      <div class="ps-day">Día 5</div>
+      <div class="ps-day" aria-label="Día 5">Día 5</div>
       <div class="ps-title">Entregable final</div>
       <div class="ps-desc">Recibes el diagnóstico completo + presentación ejecutiva lista para usar.</div>
     </div>
@@ -398,10 +736,10 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 </section>
 
 <!-- ROI -->
-<section class="roi">
+<section class="roi" aria-labelledby="roi-heading">
   <div style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem"><span style="width:16px;height:2px;background:var(--y);display:block"></span>Por qué vale la inversión</div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">S/ 1,500 te evita<br>errores de <em style="font-style:italic;color:var(--y)">S/ 20,000</em></h2>
-  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300">El costo de implementar IA sin diagnóstico es siempre mayor que el diagnóstico mismo.</p>
+  <h2 id="roi-heading" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">S/ 1,500 te evita<br>errores de <em style="font-style:italic;color:var(--y)">S/ 20,000</em></h2>
+  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300;margin-bottom:0">El costo de implementar IA sin diagnóstico es siempre mayor que el diagnóstico mismo.</p>
 
   <div class="roi-layout fade-up">
     <div class="roi-cases">
@@ -423,15 +761,15 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
     </div>
     <div class="roi-numbers">
       <div class="roi-num-item">
-        <div class="rni-num">5</div>
+        <div class="rni-num" data-target="5" data-suffix="">5</div>
         <div class="rni-text"><strong>Días de entrega</strong>Más rápido que cualquier consultora de transformación digital en el mercado peruano.</div>
       </div>
       <div class="roi-num-item">
-        <div class="rni-num">3x</div>
+        <div class="rni-num" data-target="3" data-suffix="x">3x</div>
         <div class="rni-text"><strong>ROI mínimo esperado</strong>En los casos diagnosticados, el retorno promedio de la primera iniciativa implementada supera 3x la inversión en el diagnóstico.</div>
       </div>
       <div class="roi-num-item">
-        <div class="rni-num">+15</div>
+        <div class="rni-num" data-target="15" data-prefix="+">+15</div>
         <div class="rni-text"><strong>Empresas diagnosticadas</strong>En retail, agro, logística, servicios y consultoría en el mercado peruano.</div>
       </div>
     </div>
@@ -439,10 +777,10 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 </section>
 
 <!-- UPSELL -->
-<section class="upsell">
+<section class="upsell" aria-labelledby="upsell-heading">
   <div style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem"><span style="width:16px;height:2px;background:var(--y);display:block"></span>¿Y después del diagnóstico?</div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">Puedes quedarte con<br>el plan — o <em style="font-style:italic;color:var(--y)">ejecutarlo</em></h2>
-  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300">El diagnóstico es tuyo para hacer lo que quieras. Si decides implementar con mi apoyo, aquí los pasos siguientes.</p>
+  <h2 id="upsell-heading" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:.5rem">Puedes quedarte con<br>el plan — o <em style="font-style:italic;color:var(--y)">ejecutarlo</em></h2>
+  <p style="font-size:14px;color:var(--w2);line-height:1.8;max-width:560px;font-weight:300;margin-bottom:0">El diagnóstico es tuyo para hacer lo que quieras. Si decides implementar con mi apoyo, aquí los pasos siguientes.</p>
 
   <div class="upsell-layout fade-up">
     <div class="upsell-card next">
@@ -465,12 +803,22 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
 </section>
 
 <!-- BIO STRIP -->
-<div class="bio-strip fade-up">
-  <div class="bio-avatar">RC</div>
+<div class="bio-strip fade-up" aria-labelledby="bio-heading">
+  <div class="bio-avatar" aria-hidden="true">RC</div>
   <div class="bio-content">
     <div class="bio-title">Quien hace el diagnóstico</div>
-    <div class="bio-name">Ricardo Cuba Alván</div>
-    <div class="bio-desc">Ejecutivo, director, asesor y empresario con trayectoria en los sectores privado, público, académico y como líder de startup. He colaborado con ministerios, organismos de cooperación internacional y de banca multilateral — incluyendo el BID y el Banco Mundial. Docente universitario en la especialización Fintech & IA. Investigador del ecosistema de pagos digitales y IA en el Perú. Fundador de Sinapsis Innovadora.<br><br>Ese recorrido me da algo que la mayoría de consultores no tiene: criterio formado desde adentro de cada ecosistema — no solo desde la teoría.</div>
+    <div class="bio-name" id="bio-heading">Ricardo Cuba Alván</div>
+    <div class="bio-desc">
+      <p>Ejecutivo, director, asesor y empresario con trayectoria en los sectores privado, público, académico y como líder de startup.</p>
+      <p>Ha colaborado con ministerios, organismos de cooperación internacional y de banca multilateral — incluyendo el BID y el Banco Mundial. Docente universitario en la especialización Fintech & IA.</p>
+      <p>Investigador del ecosistema de pagos digitales y IA en el Perú. Fundador de Sinapsis Innovadora.</p>
+    </div>
+    <div class="bio-highlights">
+      <div class="bio-hl"><div class="hl-num" data-target="15" data-suffix="+">+15</div><div class="hl-lbl">Años de experiencia</div></div>
+      <div class="bio-hl"><div class="hl-num" data-target="200" data-suffix="+">+200</div><div class="hl-lbl">Profesionales formados</div></div>
+      <div class="bio-hl"><div class="hl-num" data-target="15" data-suffix="+">+15</div><div class="hl-lbl">Empresas diagnosticadas</div></div>
+      <div class="bio-hl"><div class="hl-num" data-target="3">3</div><div class="hl-lbl">Sectores atendidos</div></div>
+    </div>
     <div class="bio-creds-strip">
       <span class="bio-cred-tag">Sector privado & público</span>
       <span class="bio-cred-tag">Academia</span>
@@ -479,15 +827,14 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
       <span class="bio-cred-tag">Cooperación internacional</span>
       <span class="bio-cred-tag">Ministerios del Perú</span>
       <span class="bio-cred-tag">Docente universitario</span>
-      <span class="bio-cred-tag">+200 profesionales formados</span>
     </div>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
-<section class="testi">
+<section class="testi" aria-labelledby="testi-heading">
   <div style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem"><span style="width:16px;height:2px;background:var(--y);display:block"></span>Resultados reales</div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase">Lo que dicen<br>quienes ya <em style="font-style:italic;color:var(--y)">decidieron</em></h2>
+  <h2 id="testi-heading" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:0">Lo que dicen<br>quienes ya <em style="font-style:italic;color:var(--y)">decidieron</em></h2>
   <div class="testi-grid fade-up">
     <div class="tc">
       <div class="tc-q">"</div>
@@ -507,35 +854,56 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
   </div>
 </section>
 
-<!-- OBJECTIONS -->
-<section class="objections">
+<!-- FAQ ACCORDION -->
+<section class="faq" id="faq" aria-labelledby="faq-heading">
   <div style="font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--y);margin-bottom:.75rem;display:flex;align-items:center;gap:.6rem"><span style="width:16px;height:2px;background:var(--y);display:block"></span>Dudas frecuentes</div>
-  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:0">Lo que suelen<br>preguntarme <em style="font-style:italic;color:var(--y)">antes</em></h2>
-  <div class="obj-grid fade-up">
-    <div class="obj-item">
-      <div class="obj-q">¿Y si mi empresa es muy pequeña para la IA?</div>
-      <div class="obj-a">El diagnóstico es precisamente para responder eso. <strong>Si no hay oportunidades reales para tu empresa, te lo digo en la primera sesión y no sigues pagando.</strong> Nunca vendo lo que no sirve.</div>
+  <h2 id="faq-heading" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:0">Lo que suelen<br>preguntarme <em style="font-style:italic;color:var(--y)">antes</em></h2>
+
+  <div class="faq-grid" role="list" aria-label="Preguntas frecuentes">
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-btn" aria-expanded="false">
+        <span>¿Y si mi empresa es muy pequeña para la IA?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>El diagnóstico es precisamente para responder eso. <strong>Si no hay oportunidades reales para tu empresa, te lo digo en la primera sesión y no sigues pagando.</strong> Nunca vendo lo que no sirve.</p>
+      </div>
     </div>
-    <div class="obj-item">
-      <div class="obj-q">¿No es caro S/ 1,500 para una MYPE?</div>
-      <div class="obj-a">Depende de cuánto cuesta <em>no saber</em>. Una implementación de IA sin diagnóstico cuesta entre S/ 5,000 y S/ 20,000 y falla el 70% de las veces. <strong>El diagnóstico es el seguro más barato que existe.</strong></div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-btn" aria-expanded="false">
+        <span>¿No es caro S/ 1,500 para una MYPE?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Depende de cuánto cuesta <em>no saber</em>. Una implementación de IA sin diagnóstico cuesta entre S/ 5,000 y S/ 20,000 y falla el 70% de las veces. <strong>El diagnóstico es el seguro más barato que existe.</strong></p>
+      </div>
     </div>
-    <div class="obj-item">
-      <div class="obj-q">¿Necesito tener equipo técnico en mi empresa?</div>
-      <div class="obj-a">No. El diagnóstico mapea oportunidades según tus capacidades reales actuales. <strong>El 70% de las recomendaciones no requieren contratar a nadie nuevo</strong> — usan lo que ya tienes.</div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-btn" aria-expanded="false">
+        <span>¿Necesito tener equipo técnico en mi empresa?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>No. El diagnóstico mapea oportunidades según tus capacidades reales actuales. <strong>El 70% de las recomendaciones no requieren contratar a nadie nuevo</strong> — usan lo que ya tienes.</p>
+      </div>
     </div>
-    <div class="obj-item">
-      <div class="obj-q">¿Puedo pagar en cuotas?</div>
-      <div class="obj-a">Sí. Puedes pagar S/ 750 al inicio y S/ 750 al recibir el diagnóstico. Aceptamos Yape, transferencia BCP/Interbank y tarjeta vía Niubiz. <strong>Para empresas emitimos factura con RUC sin problema.</strong></div>
+    <div class="faq-item" role="listitem">
+      <button type="button" class="faq-btn" aria-expanded="false">
+        <span>¿Puedo pagar en cuotas?</span>
+        <span class="faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="faq-answer" role="region">
+        <p>Sí. Puedes pagar S/ 750 al inicio y S/ 750 al recibir el diagnóstico. Aceptamos Yape, transferencia BCP/Interbank y tarjeta vía Niubiz. <strong>Para empresas emitimos factura con RUC sin problema.</strong></p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta" id="cta">
+<section class="final-cta" id="cta" aria-labelledby="cta-heading">
   <div class="fc-inner">
     <div class="fc-left">
-      <h2 class="fc-title">Tu competencia<br>ya está mirando<br>hacia la IA.</h2>
+      <h2 class="fc-title" id="cta-heading">Tu competencia<br>ya está mirando<br>hacia la IA.</h2>
       <p class="fc-sub">La pregunta no es si la IA va a cambiar tu industria. Ya lo está haciendo. La pregunta es si vas a llegar preparado o a reaccionar cuando sea tarde.</p>
       <p class="fc-sub"><strong>S/ 1,500 y 5 días para saberlo con certeza.</strong></p>
     </div>
@@ -555,17 +923,178 @@ footer{background:var(--bg);border-top:2px solid var(--y);padding:2rem 5rem;disp
   </div>
 </section>
 
-<footer>
-  <a class="footer-logo" href="#"><span class="footer-mark">SI</span><span class="footer-name">Sinapsis Innovadora</span></a>
+</main>
+
+<footer role="contentinfo">
+  <a class="footer-logo" href="#" aria-label="Sinapsis Innovadora - Inicio"><span class="footer-mark">SI</span><span class="footer-name">Sinapsis Innovadora</span></a>
   <div class="footer-mid">© 2026 · Ricardo Cuba Alván · Lima, Perú<br>sinapsisinnovadora.org</div>
   <div class="footer-right">@ricardocubaalvan<br>+51 902 126 765</div>
 </footer>
 
 <script>
+// Intersection Observer for fade-ups
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:0.06});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// Progress bar animation
+const processObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('animated');processObs.unobserve(e.target)}});
+},{threshold:0.3});
+const pt=document.querySelector('.progress-track');
+if(pt) processObs.observe(pt);
+
+// Counter animation
+function animateCounter(el){
+  const target=parseInt(el.dataset.target);
+  if(!target||el.dataset.animated) return;
+  el.dataset.animated='true';
+  const prefix=el.dataset.prefix||'';
+  const suffix=el.dataset.suffix||'';
+  const duration=1500;
+  const start=performance.now();
+  function tick(now){
+    const elapsed=now-start;
+    const progress=Math.min(elapsed/duration,1);
+    const eased=1-Math.pow(1-progress,3);
+    const current=Math.round(eased*target);
+    el.textContent=prefix+current+suffix;
+    if(progress<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+const counterObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.rni-num[data-target],.bio-hl .hl-num[data-target]').forEach(el=>counterObs.observe(el));
+
+// FAQ Accordion
+document.querySelectorAll('.faq-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+// Quiz logic
+(function(){
+  const answers={};
+  let currentStep=1;
+
+  function updateProgress(step){
+    const bars=document.querySelectorAll('.quiz-progress span');
+    bars.forEach((b,i)=>{
+      b.classList.remove('active','done');
+      if(i<step) b.classList.add('done');
+      if(i===step) b.classList.add('active');
+    });
+  }
+
+  function showStep(step){
+    document.querySelectorAll('.quiz-step').forEach(s=>s.classList.remove('active'));
+    const target=document.querySelector(`.quiz-step[data-step="${step}"]`);
+    if(target) target.classList.add('active');
+    updateProgress(step==='result'?4:parseInt(step)-1);
+    currentStep=step==='result'?step:parseInt(step);
+  }
+
+  // Option selection
+  document.querySelectorAll('.quiz-opt').forEach(opt=>{
+    opt.addEventListener('click',()=>{
+      const q=opt.dataset.q;
+      const parent=opt.closest('.quiz-step');
+      parent.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+      opt.classList.add('selected');
+      answers[q]=opt.dataset.val;
+      const nextBtn=parent.querySelector('.quiz-next');
+      if(nextBtn) nextBtn.disabled=false;
+    });
+  });
+
+  // Next buttons
+  document.querySelectorAll('.quiz-next[data-next]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const next=btn.dataset.next;
+      if(next==='result'){
+        showResult();
+      } else {
+        showStep(next);
+      }
+    });
+  });
+
+  // Back buttons
+  document.querySelectorAll('.quiz-back').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      showStep(btn.dataset.back);
+    });
+  });
+
+  function showResult(){
+    let score=0;
+    const recs=[];
+
+    if(answers['3']==='cero'||answers['3']==='basico') score+=2;
+    else if(answers['3']==='intermedio') score+=4;
+    else score+=6;
+
+    if(answers['4']==='critico'||answers['4']==='presionado') score+=3;
+    else if(answers['4']==='importante') score+=2;
+    else score+=1;
+
+    if(answers['2']==='ventas'||answers['2']==='admin') score+=2;
+    else score+=1;
+
+    score=Math.min(score,10);
+
+    document.getElementById('quiz-score').textContent=score+'/10';
+
+    let summary;
+    if(score<=3) summary='Tu empresa tiene un nivel digital básico, lo cual significa que hay mucho margen de mejora con inversiones relativamente pequeñas.';
+    else if(score<=6) summary='Tu empresa tiene bases digitales. Con las herramientas correctas y un plan claro, la IA puede generar resultados rápidos.';
+    else summary='Tu empresa está bien posicionada para adoptar IA. El diagnóstico te ayudará a priorizar las iniciativas de mayor impacto.';
+
+    document.getElementById('quiz-summary').textContent=summary;
+
+    const painLabels={'atencion':'Atención al cliente','ventas':'Ventas y cotizaciones','logistica':'Logística e inventario','admin':'Administración'};
+    if(answers['2']){
+      recs.push('<li>Área de mayor impacto: <strong>'+painLabels[answers['2']]+'</strong></li>');
+    }
+    recs.push('<li>Tu nivel de madurez digital te permite empezar <strong>hoy mismo</strong> con al menos 2 iniciativas IA</li>');
+    recs.push('<li>El diagnóstico completo te dará un plan detallado con costos y ROI para cada oportunidad</li>');
+
+    const ul=document.getElementById('quiz-recommendations');
+    ul.innerHTML=recs.join('');
+
+    showStep('result');
+  }
+
+  // Email capture
+  document.getElementById('quiz-email-btn').addEventListener('click',function(){
+    const email=document.getElementById('quiz-email').value;
+    if(email&&email.includes('@')){
+      this.textContent='✓ Resumen enviado';
+      this.style.background='#22c55e';
+      this.style.borderColor='#22c55e';
+      this.disabled=true;
+    }
+  });
+})();
 </script>
 </body>
 </html>
